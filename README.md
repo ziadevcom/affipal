@@ -1,23 +1,4 @@
-# react-boilerplate
+# affipal
 
-my react starter code
 
-it uses parcel to build, prettier for code formatting and eslint as linting tool. es lint has some presets installed related to accessibility and stuff, you can see it in the eslint configuration file.
-
-First install dependencies:
-
-```sh
-npm install
-```
-
-Run in Development Mode:
-
-```sh
-npm run dev
-```
-
-Create a production build
-
-```sh
-npm run build
-```
+affipal is a free tool for affiliate marketers to create engaging product cards, comparisons and other stuff easily
