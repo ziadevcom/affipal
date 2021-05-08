@@ -1,0 +1,24 @@
+.header-container {
+  width: 100%;
+  background-color: (--white);
+  border-bottom: 5px solid var(--main-color);
+}
+.header {
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  min-height: 100px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 720px) {
+  .header {
+    justify-content: space-between;
+    min-width: 90%;
+  }
+  .header a {
+    width: 50%;
+  }
+}

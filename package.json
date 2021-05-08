@@ -1,7 +1,7 @@
 {
   "name": "affipal",
   "version": "1.0.0",
-  "description": "my react starter code",
+  "description": "affipal is a free tool for affiliate marketers to create engaging product cards, comparisons and other stuff easily.",
   "main": "app.js",
   "scripts": {
     "dev": "parcel src/index.html",

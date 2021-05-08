@@ -1,0 +1,8 @@
+.navbarItem {
+  padding: 10px;
+}
+.navbarItem__link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 300;
+}
