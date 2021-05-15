@@ -24,7 +24,7 @@ function Navbar({ className }) {
         className={`header__navbar animated fadeInLeft ${className || null}`}
       >
         <ul className="navbarItems">
-          <NavbarItem link="#" text="Contact Us" />
+          <NavbarItem link="/dashboard" text="Dashboard" />
           <NavbarItem link="google.com" text="Pricing" />
           <NavbarItem link="google.com" text="Login" />
           <DropNavbarItem text="Demo">

@@ -1,0 +1,21 @@
+.syntaxHiglighter {
+  position: relative;
+}
+.syntaxHiglighter__copy {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.473);
+  padding: 10px;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.syntax-highlight {
+  max-height: 250px;
+  padding: 1rem !important;
+  margin: 5px 0;
+  border-radius: 5px;
+  overflow: hidden;
+}

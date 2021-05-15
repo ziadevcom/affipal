@@ -1,0 +1,7 @@
+.db__greetings {
+  font-size: 2rem;
+  font-weight: 600;
+  /* margin-bottom: 1.5rem; */
+  border-bottom: 3px solid var(--main-color);
+  display: inline-block;
+}

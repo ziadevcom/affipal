@@ -36,6 +36,7 @@
     margin-left: 5px;
     display: none;
     width: 100%;
+    background-color: white;
   }
 
   .navbarItems {
@@ -80,8 +81,8 @@
 }
 
 .animated {
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.25s;
+  animation-duration: 0.25s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }

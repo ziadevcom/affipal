@@ -1,0 +1,26 @@
+.card {
+  background: var(--white-color);
+}
+.card-link-wrap:hover {
+  margin-top: -15px;
+}
+.card__header {
+  background-color: #f2f3f89c;
+  padding: 1rem 20px;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--silver);
+  font-weight: 500 !important;
+}
+.card__header__h2 {
+  font-size: 17px;
+  font-weight: 500;
+}
+.card__body {
+  padding: 20px;
+  font-size: 15px;
+  color: var(--text-color-light);
+}
+
+.card__body img {
+  width: 100%;
+}

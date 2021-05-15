@@ -1,7 +1,7 @@
 import Logo from "./Logo/Logo";
 import Navbar from "./Navbar/Navbar";
 import "./Header.css";
-
+import { BrowserRouter as Router } from "react-router-dom";
 function Header({ className }) {
   return (
     <div className="header-container">

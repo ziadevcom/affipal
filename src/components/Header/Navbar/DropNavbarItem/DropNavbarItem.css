@@ -2,20 +2,22 @@
   position: relative;
   cursor: pointer;
   font-weight: 300;
+  padding: 10px 15px;
 }
 .dropableNavbarItem:focus {
-  outline: none;
   color: var(--main-color);
 }
 .dropableNavbarItem div {
   display: flex;
-  padding: 10px;
   flex-direction: row;
 }
 
 .dropableNavbarItem div img {
   max-width: 10px;
   margin-left: 5px;
+}
+.dropableNavbarItem div p {
+  font-size: 14px;
 }
 .dropableNavbarItem div img.rotate {
   transform: rotate(180deg);

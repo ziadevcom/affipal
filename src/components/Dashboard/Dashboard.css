@@ -1,0 +1,11 @@
+.db {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: calc(100vh - 85px);
+}
+
+@media screen and (max-width: 720px) {
+  .db {
+    grid-template-columns: 1fr;
+  }
+}

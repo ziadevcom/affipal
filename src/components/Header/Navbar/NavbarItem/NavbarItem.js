@@ -1,12 +1,14 @@
 import "./NavbarItem.css";
-
+import { Link, BrowserRouter as Router } from "react-router-dom";
 function NavbarItem({ link, text }) {
   return (
+    // <Router>
     <li className="navbarItem">
-      <a className="navbarItem__link" href={link || "#"}>
+      <Link className="navbarItem__link" to={link || "#"}>
         {text}
-      </a>
+      </Link>
     </li>
+    // </Router>
   );
 }
 

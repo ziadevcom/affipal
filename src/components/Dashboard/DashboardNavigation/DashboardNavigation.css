@@ -1,0 +1,15 @@
+.db__navigation {
+  display: grid;
+  grid-template-columns: 110px;
+  place-content: start;
+  background: var(--white-color);
+  box-shadow: inset 0 1px 10px rgba(140, 152, 164, 0.125);
+}
+
+@media screen and (max-width: 720px) {
+  .db__navigation {
+    padding-top: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    place-content: unset;
+  }
+}

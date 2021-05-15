@@ -10,10 +10,14 @@ function DropNavbarItem({ text, children }) {
   }
 
   return (
-    <button className="dropableNavbarItem" onClick={onClickDropableListItem}>
+    <button
+      type="button"
+      className="dropableNavbarItem"
+      onClick={onClickDropableListItem}
+    >
       <div>
         <p>{text}</p>
-        <img src={Arrow} alt=" " className={showChild ? "rotate" : null} />
+        <img src={Arrow} alt=" " className={showChild ? "rotate" : ""} />
       </div>
       {showChild && <ul className="dropableNavbarItem__list">{children}</ul>}
     </button>
