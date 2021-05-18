@@ -1,7 +1,15 @@
 import "./DashboardRow.css";
-
-function DashboardRow({ children }) {
-  return <div className="db__body__row">{children}</div>;
+import PropTypes from "prop-types";
+function DashboardRow({ children, style }) {
+  return (
+    <div className="db__body__row" style={style}>
+      {children}
+    </div>
+  );
 }
+
+DashboardRow.defaultProps = {
+  style: null,
+};
 
 export default DashboardRow;

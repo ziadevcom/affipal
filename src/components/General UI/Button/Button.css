@@ -1,0 +1,39 @@
+.affipal__button {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  outline: none;
+  transition: all 100ms ease-in-out;
+  display: grid;
+  place-items: center;
+  background: var(--button-color);
+  color: var(--white-color);
+  box-shadow: 0px 5px 0px 0px #007144;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.affipal__button:hover {
+  opacity: 0.9;
+}
+
+.affipal__button--white {
+  --button-color: white;
+  --white-color: var(--main-color);
+  box-shadow: 0px 5px 0px 0px #d3d3d3;
+}
+
+.affipal__button:active {
+  margin-top: 10px;
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+.affipal__button img {
+  width: 40px;
+}

@@ -1,0 +1,53 @@
+.input-wrapper {
+  --perRow: auto-fit;
+  --gap: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white-color);
+  display: flex;
+  display: grid;
+  grid-gap: var(-gap);
+  grid-template-columns: repeat(var(--perRow), minmax(150px, 1fr));
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  --input-bg: #f6f7f9;
+  --placeholder-color: #748194;
+}
+.input__label:hover {
+  cursor: pointer;
+}
+.input__field {
+  font-family: inherit;
+  font-weight: bold;
+  color: var(--text-color-light);
+  width: 100%;
+  min-height: 35px;
+  padding: 1rem;
+  margin-top: 0.8rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: var(--input-bg);
+  font-size: 14px;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
+  font-family: var(--secondary-font);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+::-ms-input-placeholder {
+  color: var(--placeholder-color);
+  font-family: var(--secondary-font);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 1024px) {
+  .input-wrapper {
+    --perRow: 1;
+  }
+}

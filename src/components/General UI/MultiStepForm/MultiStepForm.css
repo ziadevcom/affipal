@@ -1,0 +1,15 @@
+.mulstistep-form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(150px, 35%);
+}
+.multistep-form {
+  max-width: 100%;
+  background-color: var(--white-color);
+}
+
+@media screen and (max-width: 1366px) {
+  .mulstistep-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
