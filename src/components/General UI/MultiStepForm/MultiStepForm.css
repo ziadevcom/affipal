@@ -7,7 +7,7 @@
   background-color: var(--white-color);
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1400px) {
   .mulstistep-form-wrapper {
     display: grid;
     grid-template-columns: 1fr;

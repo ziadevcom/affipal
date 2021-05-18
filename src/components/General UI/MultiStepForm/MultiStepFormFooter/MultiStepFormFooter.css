@@ -4,3 +4,10 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
+@media screen and (max-width: 1400px) {
+  .multistep-form__footer {
+    margin: 1rem 0;
+    flex-direction: row;
+  }
+}

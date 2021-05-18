@@ -37,3 +37,10 @@
 .affipal__button img {
   width: 40px;
 }
+
+@media screen and (max-width: 1400px) {
+  .affipal__button {
+    margin-right: 10px;
+    padding: 0.5rem 1rem;
+  }
+}
