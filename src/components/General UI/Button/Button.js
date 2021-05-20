@@ -1,12 +1,13 @@
 import "./Button.css";
 import PropTypes from "prop-types";
-function Button({ style, children, variant }) {
+function Button({ onClick, style, children, variant }) {
   return (
     <button
       className={`affipal__button${
         variant == "white" ? " affipal__button--white" : ""
       }`}
       style={{ ...style }}
+      onClick={onClick}
     >
       {children}
     </button>
@@ -15,6 +16,11 @@ function Button({ style, children, variant }) {
 
 Button.defaultProps = {
   style: null,
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+  variant: PropTypes.string,
 };
 
 export default Button;

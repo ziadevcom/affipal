@@ -1,13 +1,25 @@
 import "./FormInput.css";
 import PropTypes from "prop-types";
 
-function FormInput({ id, type, placeholder, onChange, value, error, label }) {
+function FormInput({
+  id,
+  type,
+  placeholder,
+  onChange,
+  value,
+  error,
+  label,
+  step,
+  min,
+  max,
+}) {
   return (
     <div className="input">
       <label htmlFor={id} className="input__label">
         {label}{" "}
       </label>
       <input
+        name={id}
         id={id}
         type={type}
         placeholder={placeholder}
@@ -15,6 +27,9 @@ function FormInput({ id, type, placeholder, onChange, value, error, label }) {
         value={value}
         style={error && { border: "solid 1px red" }}
         className="input__field"
+        step={step}
+        min={min}
+        max={max}
       />
       <div className="input__error">{error && <p>{error}</p>}</div>
     </div>
