@@ -6,11 +6,23 @@
   max-width: 100%;
   background-color: var(--white-color);
 }
-
+.multistep-form__title {
+  padding: 2rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
 .multistep-form__row {
   padding: 1rem 0;
 }
 
+.multistep-form__errors {
+  background-color: blanchedalmond;
+  color: rgb(245, 32, 32);
+  padding: 10px 2rem;
+}
+.multistep-form__errors p {
+  font-size: 14px;
+  line-height: 2;
+}
 .multistep-form__footer {
   margin-left: 2rem;
   display: flex;
@@ -18,6 +30,42 @@
   align-items: flex-start;
 }
 
+@-webkit-keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 @media screen and (max-width: 1400px) {
   .mulstistep-form-wrapper {
     display: grid;

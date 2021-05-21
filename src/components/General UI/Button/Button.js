@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 function Button({ onClick, style, children, variant }) {
   return (
     <button
+      type="button"
       className={`affipal__button${
         variant == "white" ? " affipal__button--white" : ""
       }`}

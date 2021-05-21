@@ -1,14 +1,16 @@
+import { useState } from "react";
 import MultiStepForm, {
   FormStep,
 } from "../../../General UI/MultiStepForm/MultiStepForm";
 import FormInput from "../../../General UI/FormInput/FormInput";
 import RichTextEditor from "../../../General UI/RichTextEditor/RichTextEditor";
+import Theme1 from "../Product Cards/Theme1/Theme1";
 
 function Form({ formData, updateformData }) {
   const onTextEditorChange = (text) => {
     updateformData((prevState) => {
       let previousFormData = prevState;
-      previousFormData["product-description"] = text;
+      previousFormData["productDescription"] = text;
       return { ...previousFormData };
     });
   };
@@ -23,17 +25,39 @@ function Form({ formData, updateformData }) {
     });
   };
 
+  function verifyForm(setErrors, cb) {
+    let newErrors = [];
+    let keys = Object.getOwnPropertyNames(formData);
+    let hasEmptyInput = keys.some((key) => formData[key].trim() == "");
+    if (hasEmptyInput) {
+      newErrors.push("Please fill in required information.");
+    }
+    setErrors(newErrors);
+    // for (let key of Object.entries(formData)) {
+    //   if (value.trim() == "") {
+    //     newErrors = [
+    //       "Please fill in all required fields.",
+    //       "Enter a valid image URL.",
+    //     ];
+    //   }
+    // }
+    // if (newErrors.length > 0) {
+    //   setErrors(newErrors);
+    //   return false;
+    // }
+    // return true;
+  }
   return (
-    <MultiStepForm>
-      <FormStep>
+    <MultiStepForm formData={formData} updateformData={updateformData}>
+      <FormStep verifyForm={verifyForm} title="Enter required details.">
         <div className="input-wrapper">
           <FormInput
             onChange={onChange}
             label="Product Title"
             type="text"
             placeholder="High Tech Laptop"
-            id="product-title"
-            value={formData["product-title"]}
+            id="productTitle"
+            value={formData["productTitle"]}
             required="true"
           />
           <FormInput
@@ -41,8 +65,8 @@ function Form({ formData, updateformData }) {
             label="Product Price ($)"
             type="number"
             placeholder="1199"
-            id="product-price"
-            value={formData["product-price"]}
+            id="productPrice"
+            value={formData["productPrice"]}
             required="true"
           />
           <FormInput
@@ -50,8 +74,8 @@ function Form({ formData, updateformData }) {
             label="Product Rating"
             type="number"
             placeholder="4.6"
-            id="product-rating"
-            value={formData["product-rating"]}
+            id="productRating"
+            value={formData["productRating"]}
             required="true"
             min="1"
             max="5"
@@ -67,8 +91,8 @@ function Form({ formData, updateformData }) {
             label="Product Image URL"
             type="text"
             placeholder="https://images-na.ssl-images-amazon.com/images/I/91G5CPWSLZL._AC_SX679_.jpg"
-            id="product-image"
-            value={formData["product-image"]}
+            id="productImage"
+            value={formData["productImage"]}
             required="true"
           />
         </div>
@@ -80,18 +104,25 @@ function Form({ formData, updateformData }) {
             min="1"
             max="999999"
             placeholder="318"
-            id="no-of-reviews"
-            value={formData["no-of-reviews"]}
-            required="true"
+            id="productReviews"
+            value={formData["productReviews"]}
           />
-
           <FormInput
             onChange={onChange}
             label="Tax Statement"
             type="text"
             placeholder="Price incl. tax, excl. shipping"
-            id="product-tax-statement"
-            value={formData["product-tax-statement"]}
+            id="productTax"
+            value={formData["productTax"]}
+            required="true"
+          />
+          <FormInput
+            onChange={onChange}
+            label="Product URL"
+            type="text"
+            placeholder="https://www.amazon.com/dp/0804137382"
+            id="productURL"
+            value={formData["productURL"]}
             required="true"
           />
         </div>
@@ -101,13 +132,13 @@ function Form({ formData, updateformData }) {
         >
           <RichTextEditor
             label="Product Description"
-            text={formData["product-description"]}
+            text={formData["productDescription"]}
             onChange={onTextEditorChange}
           />
         </div>
       </FormStep>
-      <FormStep>
-        <h1>Step 2</h1>
+      <FormStep title="Choose a design">
+        <Theme1 />
       </FormStep>
       <FormStep>
         <h1>Step 3</h1>
