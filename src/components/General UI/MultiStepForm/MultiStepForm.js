@@ -2,11 +2,10 @@ import "./MultiStepForm.css";
 import Button from "../Button/Button";
 import { useState, useEffect, useRef } from "react";
 
-export default function MultiStepForm({ children }) {
+export default function MultiStepForm({ children, formData }) {
   const [steps, setStep] = useState({ step: 0, maxSteps: children.length - 1 });
   const [errors, setErrors] = useState([]);
   const initialRender = useRef(true);
-
   const { step, maxSteps } = steps;
 
   useEffect(() => {
@@ -14,7 +13,6 @@ export default function MultiStepForm({ children }) {
       initialRender.current = false;
     } else {
       if (errors.length == 0) {
-        console.log("here", errors.length);
         setStep((previousState) => {
           const { step } = previousState;
           previousState.step = step + 1;
@@ -33,8 +31,8 @@ export default function MultiStepForm({ children }) {
   }
 
   function nextStep() {
-    const { verifyForm } = children[step].props;
-    verifyForm(setErrors);
+    const { verify } = children[step].props;
+    verify(formData, setErrors);
   }
 
   return (
@@ -73,10 +71,3 @@ export default function MultiStepForm({ children }) {
 export function FormStep({ children }) {
   return <div className="multistep-form__row">{children}</div>;
 }
-
-// export function MultiStepFormFooter({ prevStep, nextStep, steps, verifyForm }) {
-//   const { step, maxSteps } = steps;
-//   console.log(verifyForm);
-//   return (
-//   );
-// }

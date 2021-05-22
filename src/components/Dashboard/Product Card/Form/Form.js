@@ -1,10 +1,12 @@
-import { useState } from "react";
 import MultiStepForm, {
   FormStep,
 } from "../../../General UI/MultiStepForm/MultiStepForm";
 import FormInput from "../../../General UI/FormInput/FormInput";
 import RichTextEditor from "../../../General UI/RichTextEditor/RichTextEditor";
 import Theme1 from "../Product Cards/Theme1/Theme1";
+import ImageSelectInput, {
+  ImageSelectInputWrapper,
+} from "../../../General UI/ImageSelectInput/ImageSelectInput";
 
 function Form({ formData, updateformData }) {
   const onTextEditorChange = (text) => {
@@ -25,31 +27,26 @@ function Form({ formData, updateformData }) {
     });
   };
 
-  function verifyForm(setErrors, cb) {
+  function verifyStep1(formState, setErrors) {
     let newErrors = [];
-    let keys = Object.getOwnPropertyNames(formData);
-    let hasEmptyInput = keys.some((key) => formData[key].trim() == "");
-    if (hasEmptyInput) {
-      newErrors.push("Please fill in required information.");
-    }
+    // let keys = Object.getOwnPropertyNames(formData);
+    // let hasEmptyInput = keys.some((key) => formData[key].trim() == "");
+    // if (hasEmptyInput) {
+    //   newErrors.push("Please fill in required information.");
+    // }
     setErrors(newErrors);
-    // for (let key of Object.entries(formData)) {
-    //   if (value.trim() == "") {
-    //     newErrors = [
-    //       "Please fill in all required fields.",
-    //       "Enter a valid image URL.",
-    //     ];
-    //   }
-    // }
-    // if (newErrors.length > 0) {
-    //   setErrors(newErrors);
-    //   return false;
-    // }
-    // return true;
   }
+
+  function verifyStep2(formState, setErrors) {
+    const { cardTheme } = formState;
+    if (!cardTheme) {
+      setErrors(["Please select at least one design."]);
+    }
+  }
+
   return (
-    <MultiStepForm formData={formData} updateformData={updateformData}>
-      <FormStep verifyForm={verifyForm} title="Enter required details.">
+    <MultiStepForm formData={formData}>
+      <FormStep verify={verifyStep1} title="Enter required details.">
         <div className="input-wrapper">
           <FormInput
             onChange={onChange}
@@ -137,8 +134,34 @@ function Form({ formData, updateformData }) {
           />
         </div>
       </FormStep>
-      <FormStep title="Choose a design">
-        <Theme1 />
+      <FormStep title="Choose a design" verify={verifyStep2}>
+        <ImageSelectInputWrapper
+          style={{ "--perRow": "2" }}
+          formData={formData}
+        >
+          <ImageSelectInput
+            image="/cardtheme1.png"
+            name="cardTheme"
+            value="Theme1"
+            updateformData={updateformData}
+            formData={formData}
+          />
+          <ImageSelectInput
+            image="/cardtheme1.png"
+            name="cardTheme"
+            value="Theme2"
+            updateformData={updateformData}
+            formData={formData}
+          />
+          <ImageSelectInput
+            image="/cardtheme1.png"
+            name="cardTheme"
+            value="Theme3"
+            updateformData={updateformData}
+            formData={formData}
+          />
+        </ImageSelectInputWrapper>
+        {/* <Theme1 /> */}
       </FormStep>
       <FormStep>
         <h1>Step 3</h1>

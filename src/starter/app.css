@@ -68,7 +68,9 @@ button {
   font-family: inherit;
   font-size: inherit;
 }
-
+label {
+  user-select: none;
+}
 .user-selection-disabled {
   user-select: none;
   -webkit-user-select: none;

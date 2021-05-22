@@ -1,0 +1,102 @@
+.ImageSelectInput {
+  position: relative;
+}
+.ImageSelectInput__label {
+  display: block;
+}
+.ImageSelectInput input:checked + img {
+}
+.ImageSelectInput input:checked + img {
+  border: 3px solid var(--main-color);
+  border-radius: 5px;
+}
+.ImageSelectInput input {
+  position: absolute;
+  top: 10%;
+  left: 90%;
+}
+.ImageSelectInput__image {
+  width: 100%;
+}
+.ImageSelectInput__image:hover {
+  cursor: pointer;
+}
+
+.imageSelectInput-wrapper {
+  padding: 0 10px;
+  --perRow: auto-fit;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--perRow), minmax(150px, 1fr));
+}
+
+.ImageSelectInput * {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+@media screen and (max-width: 1000px) {
+  .imageSelectInput-wrapper {
+    --perRow: 1 !important;
+  }
+}
+input[type="radio"] {
+  --size: 24px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  z-index: 1000;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+}
+input[type="radio"]:checked::before {
+  height: var(--size);
+  width: var(--size);
+  position: absolute;
+  content: "✔";
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+input[type="radio"]:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: "";
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+input[type="radio"]:checked {
+  background-color: var(--main-color);
+}
+input[type="radio"]::after {
+  border-radius: 50%;
+}
+
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 100px;
+    width: 100px;
+    margin-left: -37px;
+    margin-top: -37px;
+    opacity: 0;
+  }
+}

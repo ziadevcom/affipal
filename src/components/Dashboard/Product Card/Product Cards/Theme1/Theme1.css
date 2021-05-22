@@ -2,6 +2,7 @@
   --card-color: #27ae60;
   --card-font: var(--main-font);
   --width: 70%;
+  margin-top: 2rem;
   width: var(--width);
   display: flex;
   padding: calc(var(--width) / 20) 1rem;
