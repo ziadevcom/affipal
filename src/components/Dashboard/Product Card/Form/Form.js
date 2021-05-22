@@ -29,11 +29,11 @@ function Form({ formData, updateformData }) {
 
   function verifyStep1(formState, setErrors) {
     let newErrors = [];
-    // let keys = Object.getOwnPropertyNames(formData);
-    // let hasEmptyInput = keys.some((key) => formData[key].trim() == "");
-    // if (hasEmptyInput) {
-    //   newErrors.push("Please fill in required information.");
-    // }
+    let keys = Object.getOwnPropertyNames(formData);
+    let hasEmptyInput = keys.some((key) => formData[key].trim() == "");
+    if (hasEmptyInput) {
+      newErrors.push("Please fill in required information.");
+    }
     setErrors(newErrors);
   }
 
