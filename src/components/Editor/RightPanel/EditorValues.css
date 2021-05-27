@@ -1,0 +1,14 @@
+/* styles for close and open mechanism to work properly */
+.editor__values {
+  width: 20%;
+}
+.editor__values .closePanel {
+  left: calc(-1 * var(--width));
+}
+.editor__values.width0 {
+  width: 0%;
+}
+.editor__values.width0 .closePanel img {
+  transform: rotate(-180deg);
+}
+/* styles for close and open mechanism to work properly */

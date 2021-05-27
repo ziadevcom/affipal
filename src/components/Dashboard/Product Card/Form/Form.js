@@ -1,14 +1,16 @@
+import { useHistory } from "react-router-dom";
 import MultiStepForm, {
   FormStep,
 } from "../../../General UI/MultiStepForm/MultiStepForm";
 import FormInput from "../../../General UI/FormInput/FormInput";
 import RichTextEditor from "../../../General UI/RichTextEditor/RichTextEditor";
-import Theme1 from "../Product Cards/Theme1/Theme1";
 import ImageSelectInput, {
   ImageSelectInputWrapper,
 } from "../../../General UI/ImageSelectInput/ImageSelectInput";
 
 function Form({ formData, updateformData }) {
+  const history = useHistory();
+
   const onTextEditorChange = (text) => {
     updateformData((prevState) => {
       let previousFormData = prevState;
@@ -43,9 +45,14 @@ function Form({ formData, updateformData }) {
       setErrors(["Please select at least one design."]);
     }
   }
-
+  function onSubmit() {
+    history.push({
+      pathname: "/editor",
+      state: { response: formData },
+    });
+  }
   return (
-    <MultiStepForm formData={formData}>
+    <MultiStepForm formData={formData} onSubmit={onSubmit}>
       <FormStep verify={verifyStep1} title="Enter required details.">
         <div className="input-wrapper">
           <FormInput
@@ -162,12 +169,6 @@ function Form({ formData, updateformData }) {
           />
         </ImageSelectInputWrapper>
         {/* <Theme1 /> */}
-      </FormStep>
-      <FormStep>
-        <h1>Step 3</h1>
-      </FormStep>
-      <FormStep>
-        <h1>Step 4</h1>
       </FormStep>
     </MultiStepForm>
   );

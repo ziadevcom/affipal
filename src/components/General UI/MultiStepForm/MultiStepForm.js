@@ -2,7 +2,7 @@ import "./MultiStepForm.css";
 import Button from "../Button/Button";
 import { useState, useEffect, useRef } from "react";
 
-export default function MultiStepForm({ children, formData }) {
+export default function MultiStepForm({ children, formData, onSubmit }) {
   const [steps, setStep] = useState({ step: 0, maxSteps: children.length - 1 });
   const [errors, setErrors] = useState([]);
   const initialRender = useRef(true);
@@ -35,6 +35,10 @@ export default function MultiStepForm({ children, formData }) {
     verify(formData, setErrors);
   }
 
+  function submit() {
+    onSubmit();
+  }
+
   return (
     <form className="mulstistep-form-wrapper">
       <div className="multistep-form">
@@ -57,7 +61,7 @@ export default function MultiStepForm({ children, formData }) {
             <img src="/next.svg" alt="" />
           </Button>
         ) : null}
-        {step == maxSteps ? <Button>Submit</Button> : null}
+        {step == maxSteps ? <Button onClick={submit}>Submit</Button> : null}
         {step > 0 ? (
           <Button onClick={prevStep} variant="white">
             Previous

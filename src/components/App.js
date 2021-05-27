@@ -1,13 +1,21 @@
 import React from "react";
 import Header from "./Header/Header";
 import Dashboard from "./Dashboard/Dashboard";
-import { BrowserRouter as Router } from "react-router-dom";
+import Editor from "./Editor/Editor";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <Router>
-      <Header />
-      <Dashboard />
+      <Switch>
+        <Route path="/editor">
+          <Editor />
+        </Route>
+        <Route path="/">
+          <Header />
+          <Dashboard />
+        </Route>
+      </Switch>
     </Router>
   );
 };

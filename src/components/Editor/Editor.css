@@ -1,0 +1,71 @@
+.editor {
+  --left: 20%;
+  --right: 20%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .editor {
+    /* grid-template-columns: 1fr; */
+  }
+}
+
+/* common styles */
+.editor__preview {
+  padding: 0 5rem;
+}
+
+.editor__styles,
+.editor__values {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+}
+.panel-content-wrapper {
+  padding: 1rem;
+}
+
+.editorHeader {
+  text-align: center;
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  font-weight: 600;
+  height: 6rem;
+  font-family: var(--main-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+.editorHeader img {
+  width: 40px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.closePanel {
+  --width: 1.3rem;
+  position: absolute;
+  top: 50%;
+  width: var(--width);
+  color: white;
+  background-color: var(--main-color);
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+.closePanel img {
+  width: 12px;
+}
+
+/* common styles */
+
+.editor__preview {
+  display: grid;
+  place-items: center;
+}

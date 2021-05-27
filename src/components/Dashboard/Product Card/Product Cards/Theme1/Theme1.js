@@ -1,52 +1,48 @@
 import "./Theme1.css";
+import parse from "html-react-parser";
+import { useContext } from "react";
 
-function Theme1() {
+function Theme1({ data, setEl }) {
+  const {
+    productDescription,
+    productTitle,
+    productURL,
+    productReviews,
+    productRating,
+    productTax,
+    productImage,
+    productPrice,
+  } = data;
+
   return (
     <div className="product-card">
       <div className="product__card__badge">Top Pick</div>
       <div className="product-card__image">
-        <img src="/demoimage.png" alt="" />
+        <img src={productImage} alt="" />
         <div className="product-card__rating">
           <span href="#" className="rating__star-bg">
-            <span style={{ width: "86%" }}> </span>
+            <span style={{ width: `${productRating * 20}%` }}></span>
           </span>
-          <small className="product-card__reviews">3648 Reviews</small>
+          <small className="product-card__reviews">
+            {productReviews} Reviews
+          </small>
         </div>
       </div>
       <div className="product-card__features">
-        <p className="product__card__price">$24.95</p>
+        <p className="product__card__price" onClick={(e) => setEl(e.target)}>
+          ${productPrice}
+        </p>
         <h1 className="product-card__features__title">
-          <a href="#" target="_blank">
-            Glycolic Acid 20% Resurfacing Pads for Face &amp; Body with Vitamins
-            B5, C &amp; E
+          <a href={productURL} target="_blank" rel="noreferrer">
+            {productTitle}
           </a>
         </h1>
-        <ul className="product-card__features__list">
-          <li>
-            Powerful antioxidants that will leave your skin fully hydrated and
-            that will help repair photo-damage from UV rays.
-          </li>
-          <li>
-            Allantoin helps to soothe and protect the skin while Green Tea and
-            Calendula extracts act as anti-inflammatory and antioxidant agents.
-          </li>
-          <li>
-            Each jar comes with 50 professional-grade non-woven textured pads
-            with a convenient finger notch for easy application.
-          </li>
-          <li>
-            QRxLabs products are Made in the USA in an FDA-registered facility.
-            We only use professional-grade ingredients and never any silicone or
-            parabens.
-          </li>
-        </ul>
+        {parse(productDescription)}
         <a href="#" className="product__card__button">
           Buy Now
         </a>
       </div>
-      <small className="product-card__tax">
-        Price incl. tax, excl. shipping
-      </small>
+      <small className="product-card__tax">{productTax}</small>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 .product-card {
-  --card-color: #27ae60;
+  --main-color: #27ae60;
   --card-font: var(--main-font);
-  --width: 70%;
+  --width: 100%;
   margin-top: 2rem;
   width: var(--width);
   display: flex;
@@ -11,7 +11,7 @@
   position: relative;
   padding: 2 1rem;
   align-items: center;
-  box-shadow: 0 0 81px -55px var(--card-color) !important;
+  border: 1px solid var(--silver);
 }
 .product-card__image {
   margin-top: 1rem;
@@ -30,7 +30,7 @@
   flex-direction: column;
 }
 .product-card__features__title a {
-  color: var(--card-color);
+  color: var(--main-color);
   line-height: 1.5;
   font-weight: 700;
   font-family: var(--card-font);
@@ -112,7 +112,7 @@
 
 /* Button */
 .product__card__button {
-  background-color: var(--card-color);
+  background-color: var(--main-color);
   border: none;
   color: white;
   cursor: pointer;
@@ -134,7 +134,7 @@ a.product__card__button:active {
   top: -18px;
   left: -10px;
   display: inline-block;
-  background-color: var(--card-color);
+  background-color: var(--main-color);
   color: var(--white-color);
   z-index: 500;
   padding: 10px 15px;
@@ -150,7 +150,7 @@ a.product__card__button:active {
   position: absolute;
   left: -10px;
   bottom: -7px;
-  border-color: transparent var(--card-color) transparent transparent;
+  border-color: transparent var(--main-color) transparent transparent;
   border-style: inset solid inset inset;
   border-width: 0 10px 7px;
   filter: brightness(50%);
@@ -169,6 +169,9 @@ a.product__card__button:active {
   .product-card__features {
     width: 100% !important;
     text-align: left;
+  }
+  .product-card__features {
+    margin-left: 0;
   }
   .product-card__image img {
     width: 150px;
@@ -190,7 +193,7 @@ a.product__card__button:active {
 }
 
 /* Themes #card-theme-purple {
-  --card-color: #400093 !important;
+  --main-color: #400093 !important;
 }
 #card-theme-blue {
   --card-color: #0083fe !important;

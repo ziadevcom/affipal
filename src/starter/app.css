@@ -18,7 +18,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 *:focus:not(:focus-visible) {
@@ -61,12 +65,17 @@ h6 {
   font-family: var(--main-font) !important;
   font-weight: 600;
 }
-
+img {
+  width: 100%;
+}
 button {
   background: none;
   border: none;
   font-family: inherit;
   font-size: inherit;
+}
+button:hover {
+  cursor: pointer;
 }
 label {
   user-select: none;
@@ -84,6 +93,17 @@ label {
 .smoothed {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.respect-overflow {
+  position: relative;
+}
+
+.overflow-wrap {
+  overflow: hidden;
+}
+.d-none {
+  display: none;
 }
 
 ul {
@@ -106,7 +126,13 @@ p {
 a {
   color: var(--main-color);
 }
-
+input {
+  padding: 1rem;
+  background-color: #f6f7f9;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
