@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 768px) {
   .editor {
-    /* grid-template-columns: 1fr; */
+    flex-direction: column;
   }
 }
 

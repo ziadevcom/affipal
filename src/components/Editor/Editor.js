@@ -40,7 +40,6 @@ export function EditorHeader({ heading, img }) {
     </div>
   );
 }
-
 export function ClosePanel({ setShowPanel }) {
   function togglePanel() {
     setShowPanel((prev) => !prev);

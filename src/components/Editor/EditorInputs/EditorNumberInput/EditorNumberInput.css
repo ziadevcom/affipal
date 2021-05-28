@@ -1,0 +1,74 @@
+.editorNumberInput {
+  --input-color: rgb(85, 85, 85);
+  --input-border: var(--silver);
+  --input-background: #fff;
+  --input-placeholder: #cbd1dc;
+  --input-border-focus: #0d5a137e;
+  --group-color: var(--input-color);
+  --group-border: var(--input-border);
+  --group-background: var(--secondary-color);
+  --group-color-focus: #fff;
+  --group-border-focus: var(--input-border-focus);
+  --group-background-focus: #678efe;
+  display: flex;
+  flex-direction: column;
+}
+.editorNumberInput__label {
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+}
+.editorNumberInput__input--wrapper {
+  display: flex;
+  padding: 0.5rem 0;
+}
+.editorNumberInput__input {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  color: var(--input-color);
+  border: 1px solid var(--input-border);
+  border-top-right-radius: 0;
+  border-right: none;
+  border-bottom-right-radius: 0;
+  background: var(--input-background);
+  transition: border 0.3s ease;
+}
+.editorNumberInput__input::-moz-placeholder {
+  color: var(--input-placeholder);
+}
+.editorNumberInput__input:-ms-input-placeholder {
+  color: var(--input-placeholder);
+}
+.editorNumberInput__input::placeholder {
+  color: var(--input-placeholder);
+}
+.editorNumberInput__input:focus {
+  outline: none;
+  font-weight: bold;
+}
+
+.editorNumberInputButton {
+  text-align: center;
+  padding: 0 8px;
+  font-size: 10px;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  color: var(--group-color);
+  background: var(--group-background);
+  border-right: 1px solid var(--group-border);
+}
+#editorNumberInputButtonActive {
+  color: var(--white-color);
+  background-color: var(--main-color);
+}
+.editorNumberInputButton:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}

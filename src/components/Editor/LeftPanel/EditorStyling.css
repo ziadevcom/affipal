@@ -1,7 +1,14 @@
-/* styles for close and open mechanism to work properly */
 .editor__styles {
   width: 20%;
 }
+
+@media screen and (max-width: 768px) {
+  .editor__styles {
+    width: 100%;
+  }
+}
+
+/* styles for close and open mechanism to work properly */
 .editor__styles.width0 {
   width: 0%;
 }

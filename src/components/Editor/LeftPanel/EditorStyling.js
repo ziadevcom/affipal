@@ -11,7 +11,7 @@ function EditorStyling({ El }) {
       <div className="overflow-wrap">
         <EditorHeader heading="CSS Styles" img="/colors.svg" />
         <div className="panel-content-wrapper respect-overflow">
-          <EditorStylingContent />
+          <EditorStylingContent element={El} />
         </div>
         <ClosePanel setShowPanel={setShowPanel} />
       </div>

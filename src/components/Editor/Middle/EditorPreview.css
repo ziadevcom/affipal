@@ -1,3 +1,11 @@
 .editor__preview {
   flex: 60%;
+  /* overflow: hidden; */
 }
+
+@media screen and (max-width: 768px) {
+  .editor__preview {
+    flex: 100%;
+    padding: 2rem 1rem;
+  }
+} ;

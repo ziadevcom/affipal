@@ -55,7 +55,9 @@
 }
 
 .product__card__price {
-  font-size: 1.3rem;
+  --desktopFontSize: 1.3rem;
+  --mobileFontSize: var(--desktopFontSize);
+  font-size: var(--desktopFontSize);
   color: #323232;
   font-weight: bold;
   margin-bottom: 5px;
@@ -124,6 +126,7 @@
   text-align: right;
   text-decoration: none;
   align-self: flex-end;
+  overflow: hidden;
 }
 a.product__card__button:active {
   transform: scale(0.9);
@@ -163,6 +166,7 @@ a.product__card__button:active {
   }
   .product__card__price {
     order: 2;
+    font-size: var(--mobileFontSize);
   }
 
   .product-card__image,

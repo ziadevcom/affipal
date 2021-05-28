@@ -1,7 +1,11 @@
 import { useState } from "react";
-import "./EditorInputs.css";
+import "./InputCard.css";
 
-export function InputCard() {
+export function InputCard({ title, children }) {
+  if (!children) {
+    console.warn("<InputCard/> Component should have at least one children.");
+    return null;
+  }
   const [Show, setShow] = useState(true);
   function toggleBody() {
     setShow(!Show);
@@ -9,7 +13,7 @@ export function InputCard() {
   return (
     <div className="inputCard">
       <div className="inputCard__header">
-        <h3>Global Theme</h3>
+        <h3>{title || "Provide a title"}</h3>
         <button onClick={toggleBody} title={Show ? "Hide" : "Show"}>
           <svg
             viewBox="0 0 61 58"
@@ -55,10 +59,7 @@ export function InputCard() {
         className="inputCard__body"
         id={Show ? null : "inputCard__body-hidden"}
       >
-        <label>
-          Enter Color
-          <input type="number" />
-        </label>
+        {children}
       </div>
     </div>
   );

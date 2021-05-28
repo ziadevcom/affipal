@@ -1,7 +1,13 @@
-/* styles for close and open mechanism to work properly */
 .editor__values {
   width: 20%;
 }
+@media screen and (max-width: 768px) {
+  .editor__values {
+    width: 100%;
+  }
+}
+/* styles for close and open mechanism to work properly */
+
 .editor__values .closePanel {
   left: calc(-1 * var(--width));
 }
