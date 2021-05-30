@@ -3,7 +3,7 @@ import { EditorHeader, ClosePanel } from "../Editor";
 import { useState } from "react";
 import EditorStylingContent from "./EditorStylingContent";
 
-function EditorStyling({ El }) {
+function EditorStyling({ El, setPreview, preview }) {
   const [ShowPanel, setShowPanel] = useState(true);
 
   return (
@@ -11,7 +11,11 @@ function EditorStyling({ El }) {
       <div className="overflow-wrap">
         <EditorHeader heading="CSS Styles" img="/colors.svg" />
         <div className="panel-content-wrapper respect-overflow">
-          <EditorStylingContent element={El} />
+          <EditorStylingContent
+            element={El}
+            preview={preview}
+            setPreview={setPreview}
+          />
         </div>
         <ClosePanel setShowPanel={setShowPanel} />
       </div>

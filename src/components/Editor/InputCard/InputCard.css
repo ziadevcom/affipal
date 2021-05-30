@@ -42,8 +42,11 @@
   justify-content: space-between;
   align-items: center;
   transition-duration: 0.2s;
+  flex-direction: column;
 }
-
+.inputCard__body > div {
+  margin: 0.5rem 0;
+}
 /* animations */
 @-webkit-keyframes fadeIn {
   from {

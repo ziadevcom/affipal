@@ -1,32 +1,44 @@
 import { useState } from "react";
 import useDidMountEffect from "../../../CustomHooks/useDidMountEffect";
-// import PropTypes from "prop-types";
 import "./EditorNumberInput.css";
 
-function EditorNumberInput({ sideEffect, name, element, label, step }) {
+function EditorNumberInput({
+  sideEffect,
+  name,
+  element,
+  label,
+  step,
+  preview,
+}) {
   const [inputValue, setInputValue] = useState("");
+  const [MobileInputValue, setMobileInputValue] = useState("");
   const [CSSUnit, setCSSUnit] = useState("px");
-  const [FinalValue, setFinalValue] = useState("");
-  const [ForMobile, setForMobile] = useState(false);
-
+  const [DesktopValue, setDesktopValue] = useState("");
+  const [MobileValue, setMobileValue] = useState("");
   useDidMountEffect(() => {
     if (!element) return;
-    sideEffect(element, FinalValue, ForMobile);
-  }, [FinalValue]);
+    sideEffect(element, DesktopValue, MobileValue, preview);
+  }, [DesktopValue, MobileValue]);
 
   useDidMountEffect(() => {
-    if (inputValue > 0) {
-      setFinalValue(`${inputValue}${CSSUnit}`);
+    if (inputValue > 0 || MobileInputValue > 0) {
+      if (preview == "mobile") {
+        setMobileValue(`${MobileInputValue}${CSSUnit}`);
+      } else {
+        setDesktopValue(`${inputValue}${CSSUnit}`);
+      }
     }
-  }, [inputValue, CSSUnit]);
+  }, [inputValue, CSSUnit, MobileInputValue]);
 
   function onClickHandler(e) {
     setCSSUnit(e.target.innerText);
   }
   function onChangeHandler(e) {
+    if (preview == "mobile") {
+      return setMobileInputValue(e.target.value);
+    }
     setInputValue(e.target.value);
   }
-
   return (
     <div className="editorNumberInput">
       <label htmlFor={name} className="editorNumberInput__label">
@@ -39,9 +51,9 @@ function EditorNumberInput({ sideEffect, name, element, label, step }) {
           className="editorNumberInput__input"
           type="number"
           placeholder="25"
-          value={inputValue}
           onChange={onChangeHandler}
           min="1"
+          value={preview == "mobile" ? MobileInputValue : inputValue}
         />
         <button
           id={CSSUnit == "vw" ? "editorNumberInputButtonActive" : null}
@@ -65,10 +77,6 @@ function EditorNumberInput({ sideEffect, name, element, label, step }) {
           em
         </button>
       </div>
-      <label>
-        Mobile
-        <input type="checkbox" onChange={() => setForMobile((prev) => !prev)} />
-      </label>
     </div>
   );
 }

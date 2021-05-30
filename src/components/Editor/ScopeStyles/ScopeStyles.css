@@ -1,0 +1,16 @@
+.scopeStyles {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scopeStyles__title {
+  font-size: 0.85rem;
+}
+.scopeStyles__body {
+  display: flex;
+}
+
+.scopeStyles__body > * {
+  margin: 0 5px;
+}

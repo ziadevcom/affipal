@@ -2,10 +2,19 @@
   flex: 60%;
   /* overflow: hidden; */
 }
-
+.editor__preview iframe {
+  border: none;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
 @media screen and (max-width: 768px) {
   .editor__preview {
     flex: 100%;
     padding: 2rem 1rem;
+  }
+  .editor__preview iframe {
+    height: 800px;
   }
 } ;

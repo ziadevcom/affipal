@@ -6,10 +6,10 @@ import EditorStyes from "./LeftPanel/EditorStyling";
 import EditorValues from "./RightPanel/EditorValues";
 
 export default function Editor(props) {
+  const [Preview, setPreview] = useState("desktop");
   const [El, setEl] = useState();
   // const location = useLocation();
   // const { response: formData } = location.state;
-
   const formData = {
     productTitle: "Essentialism: The Disciplined Pursuit of Less",
     productImage:
@@ -25,8 +25,8 @@ export default function Editor(props) {
   };
   return (
     <div className="editor">
-      <EditorStyes El={El} />
-      <EditorPreview formData={formData} setEl={setEl} />
+      <EditorStyes El={El} preview={Preview} setPreview={setPreview} />
+      <EditorPreview formData={formData} setEl={setEl} preview={Preview} />
       <EditorValues />
     </div>
   );

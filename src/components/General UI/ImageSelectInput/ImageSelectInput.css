@@ -4,11 +4,11 @@
 .ImageSelectInput__label {
   display: block;
 }
-.ImageSelectInput input:checked + img {
-}
+
 .ImageSelectInput input:checked + img {
   border: 3px solid var(--main-color);
   border-radius: 5px;
+  transition: border 50ms ease-in-out;
 }
 .ImageSelectInput input {
   position: absolute;
@@ -40,12 +40,8 @@
     --perRow: 1 !important;
   }
 }
-input[type="radio"] {
+.option-input {
   --size: 24px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
   appearance: none;
   transition: all 0.15s ease-out 0s;
   background: #cbd1d8;
@@ -58,7 +54,7 @@ input[type="radio"] {
   height: var(--size);
   border-radius: 50%;
 }
-input[type="radio"]:checked::before {
+.option-input:checked::before {
   width: var(--size);
   position: absolute;
   content: "✔";
@@ -66,8 +62,11 @@ input[type="radio"]:checked::before {
   font-size: 20px;
   text-align: center;
   line-height: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-input[type="radio"]:checked::after {
+.option-input:checked::after {
   -webkit-animation: click-wave 0.65s;
   -moz-animation: click-wave 0.65s;
   animation: click-wave 0.65s;
@@ -76,11 +75,14 @@ input[type="radio"]:checked::after {
   display: block;
   position: relative;
   z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-input[type="radio"]:checked {
+.option-input:checked {
   background-color: var(--main-color);
 }
-input[type="radio"]::after {
+.option-input::after {
   border-radius: 50%;
 }
 
@@ -94,8 +96,6 @@ input[type="radio"]::after {
   100% {
     height: 100px;
     width: 100px;
-    margin-left: -37px;
-    margin-top: -37px;
     opacity: 0;
   }
 }

@@ -1,18 +1,12 @@
+.blah {
+  color: white;
+}
+.editor__styles.width0 {
+  width: 0;
+}
 .editor__styles {
   width: 20%;
 }
-
-@media screen and (max-width: 768px) {
-  .editor__styles {
-    width: 100%;
-  }
-}
-
-/* styles for close and open mechanism to work properly */
-.editor__styles.width0 {
-  width: 0%;
-}
-
 .editor__styles .closePanel {
   right: calc(-1 * var(--width));
 }
@@ -23,4 +17,8 @@
 .editor__styles.width0 .closePanel img {
   transform: rotate(0deg);
 }
-/* styles for close and open mechanism to work properly */
+@media screen and (max-width: 768px) {
+  .editor__styles {
+    width: 100% !important;
+  }
+}

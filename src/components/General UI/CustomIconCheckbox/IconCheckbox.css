@@ -1,0 +1,57 @@
+.iconCheckbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 0.85rem;
+}
+.iconCheckbox__input-wrapper {
+  --inputSize: 35px;
+  position: relative;
+  width: var(--inputSize);
+  height: var(--inputSize);
+}
+.iconCheckbox__input {
+  opacity: 0;
+  background-color: grey;
+  width: var(--inputSize);
+  height: var(--inputSize);
+  z-index: 9;
+}
+.iconCheckbox__input:hover {
+  cursor: pointer;
+}
+.iconCheckbox__input-wrapper:hover {
+  cursor: pointer;
+}
+.inputCheckbox__svg-wrap {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+.inputCheckbox__svg-wrap:hover {
+  background-color: var(--silver);
+  cursor: pointer;
+}
+.inputCheckbox__svg-wrap img {
+  width: 20px;
+  height: 20px;
+  transition: none;
+}
+
+.iconCheckbox__input:checked + .inputCheckbox__svg-wrap img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(166deg)
+    brightness(105%) contrast(101%);
+}
+
+.iconCheckbox__input:checked + .inputCheckbox__svg-wrap {
+  background-color: var(--main-color);
+}

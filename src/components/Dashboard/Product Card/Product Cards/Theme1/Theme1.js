@@ -19,7 +19,7 @@ function Theme1({ data, setEl }) {
   }
 
   return (
-    <div className="product-card">
+    <div id="productCard" className="product-card">
       <div className="product__card__badge">Top Pick</div>
       <div className="product-card__image">
         <img src={productImage} alt="" />
