@@ -79,6 +79,7 @@ button:hover {
 }
 label {
   user-select: none;
+  cursor: pointer;
 }
 .user-selection-disabled {
   user-select: none;

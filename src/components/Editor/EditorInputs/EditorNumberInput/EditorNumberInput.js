@@ -9,15 +9,18 @@ function EditorNumberInput({
   label,
   step,
   preview,
+  min,
 }) {
+  console.log(sideEffect);
   const [inputValue, setInputValue] = useState("");
   const [MobileInputValue, setMobileInputValue] = useState("");
   const [CSSUnit, setCSSUnit] = useState("px");
   const [DesktopValue, setDesktopValue] = useState("");
   const [MobileValue, setMobileValue] = useState("");
+
   useDidMountEffect(() => {
     if (!element) return;
-    sideEffect(element, DesktopValue, MobileValue, preview);
+    sideEffect(DesktopValue, MobileValue, preview);
   }, [DesktopValue, MobileValue]);
 
   useDidMountEffect(() => {
@@ -46,22 +49,15 @@ function EditorNumberInput({
       </label>
       <div className="editorNumberInput__input--wrapper">
         <input
-          step={step}
+          step={step || 0.1}
           id={name}
           className="editorNumberInput__input"
           type="number"
           placeholder="25"
           onChange={onChangeHandler}
-          min="1"
           value={preview == "mobile" ? MobileInputValue : inputValue}
+          min={min || 0.1}
         />
-        <button
-          id={CSSUnit == "vw" ? "editorNumberInputButtonActive" : null}
-          onClick={onClickHandler}
-          className="editorNumberInputButton"
-        >
-          vw
-        </button>
         <button
           id={CSSUnit == "px" ? "editorNumberInputButtonActive" : null}
           onClick={onClickHandler}
@@ -70,11 +66,18 @@ function EditorNumberInput({
           px
         </button>
         <button
-          id={CSSUnit == "em" ? "editorNumberInputButtonActive" : null}
+          id={CSSUnit == "rem" ? "editorNumberInputButtonActive" : null}
           onClick={onClickHandler}
           className="editorNumberInputButton"
         >
-          em
+          rem
+        </button>
+        <button
+          id={CSSUnit == "vw" ? "editorNumberInputButtonActive" : null}
+          onClick={onClickHandler}
+          className="editorNumberInputButton"
+        >
+          vw
         </button>
       </div>
     </div>

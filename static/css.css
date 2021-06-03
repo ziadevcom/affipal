@@ -1,28 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
 
-html {
-  height: 100%;
-}
-
-body {
-  width: 100%;
-  margin: 0;
-  height: 100%;
-  display: grid;
-  place-items: center;
-}
-body * {
-  padding: 0;
-  margin: 0;
-}
-.frame-content {
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
-  overflow: visible;
-}
 .product-card {
   --main-color: #27ae60;
   --white: white;

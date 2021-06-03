@@ -1,16 +1,34 @@
 .inputCard {
   margin-bottom: 2rem;
   border: 1px solid var(--secondary-color);
+  /* border-bottom: 1px solid var(--secondary-color); */
   border-radius: 5px;
   transform: all 0.3s ease;
+  width: 100%;
 }
 
+.inputCard-inside {
+  border: 0 !important;
+}
+.inputCard-inside .inputCard__body,
+.inputCard-inside .inputCard__header {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 0px;
+  border: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.inputCard-inside .inputCard__header button {
+  margin-right: 8px;
+}
 .inputCard__header {
+  border-bottom: 1px solid var(--secondary-color);
   padding: 0.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--secondary-color);
+  min-height: 75px;
 }
 .inputCard__header h3 {
   font-size: 0.9rem;
@@ -37,15 +55,18 @@
 .inputCard__body {
   max-height: 100rem;
   opacity: 1;
-  padding: 0.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition-duration: 0.2s;
   flex-direction: column;
+  padding: 0.8rem;
 }
 .inputCard__body > div {
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
+}
+.inputCard__body * {
+  font-size: 0.8rem;
 }
 /* animations */
 @-webkit-keyframes fadeIn {
