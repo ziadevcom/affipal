@@ -1,0 +1,27 @@
+#themeChangers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* width: 100%;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(7, minmax(2.5rem, 2.5rem)); */
+}
+.themeChanger {
+  /* width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 5px 5px 0; */
+  /* flex: 0 1 150px;  No stretching: */
+
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  cursor: pointer;
+}
+.themeChanger:not(:last-child) {
+  margin-right: 5px;
+}
+.themeChanger:hover {
+  margin-top: -6px;
+  transition: margin-top 0.2s ease-in-out;
+}
