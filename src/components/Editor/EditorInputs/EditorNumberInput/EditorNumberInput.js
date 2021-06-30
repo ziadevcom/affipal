@@ -11,16 +11,14 @@ function EditorNumberInput({
   preview,
   min,
 }) {
-  console.log(sideEffect);
   const [inputValue, setInputValue] = useState("");
   const [MobileInputValue, setMobileInputValue] = useState("");
   const [CSSUnit, setCSSUnit] = useState("px");
   const [DesktopValue, setDesktopValue] = useState("");
   const [MobileValue, setMobileValue] = useState("");
-
   useDidMountEffect(() => {
     if (!element) return;
-    sideEffect(DesktopValue, MobileValue, preview);
+    sideEffect(DesktopValue, MobileValue);
   }, [DesktopValue, MobileValue]);
 
   useDidMountEffect(() => {

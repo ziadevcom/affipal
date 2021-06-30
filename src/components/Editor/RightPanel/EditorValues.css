@@ -17,4 +17,71 @@
 .editor__values.width0 .closePanel img {
   transform: rotate(-180deg);
 }
-/* styles for close and open mechanism to work properly */
+/* Misc */
+.editor__values .overflow-wrap .panel-content-wrapper.respect-overflow > div {
+  margin: 15px 0 !important;
+}
+/* Editor Values  Inputs Styles */
+.editorValueInput {
+  width: 100%;
+  padding: 0;
+  margin: 0 !important;
+}
+.editorValueInput label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.editorValueInput input,
+.editorValueInput textarea {
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin-top: 0;
+  color: var(--text-color-light);
+  padding: 1.3rem;
+}
+/* Note */
+.editor__values__note {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  font-weight: 500;
+  padding: 1rem 0.6rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.editor__values__note img {
+  width: 70px;
+  background-color: var(--white-color);
+  border-radius: 900px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.getCode {
+  /* display: inline-block; */
+  background-color: var(--main-color);
+  font-size: 0.95rem;
+  color: var(--white-color);
+  border: none;
+  cursor: pointer;
+  padding: 15px 25px;
+  font-weight: 500;
+  border-radius: 5px;
+  text-align: right;
+  text-decoration: none;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
+.getCode:hover {
+  background: var(--button-color-2);
+  transition: all 300ms ease;
+}
+.getCode:active {
+  transform: scale(0.95);
+}
+.editor__values .overflow-wrap .panel-content-wrapper.respect-overflow {
+  display: flex;
+  flex-direction: column;
+}

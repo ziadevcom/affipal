@@ -1,6 +1,6 @@
 import "./SelectedElement.css";
 import parser from "html-react-parser";
-
+import { useContext } from "react";
 function SelectedElement({ element }) {
   return (
     <div className="selectedElement">

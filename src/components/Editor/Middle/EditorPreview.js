@@ -1,12 +1,22 @@
 import Theme1 from "../../Dashboard/Product Card/Product Cards/Theme1/Theme1";
 import "./EditorPreview.css";
 import Frame from "react-frame-component";
+import { Context } from "../Editor";
+import { useContext } from "react";
 
-export default function EditorPreview({ formData, setEl, preview }) {
+export default function EditorPreview({}) {
+  const { DesignTheme, DesignData, Preview, DesignWrapper } = useContext(
+    Context
+  );
+
   return (
     <div className="editor__preview">
-      <PreviewFrame preview={preview}>
-        <Theme1 data={formData} setEl={setEl} />
+      <PreviewFrame preview={Preview}>
+        <Theme1
+          DesignWrapper={DesignWrapper}
+          DesignData={DesignData}
+          DesignTheme={DesignTheme}
+        />
       </PreviewFrame>
     </div>
   );
@@ -28,12 +38,12 @@ function PreviewFrame({ children, preview, stylesheet }) {
   body * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
   }
   .frame-content {
     display: grid;
     place-items: center;
     padding: 1rem;
-    box-sizing: border-box;
     overflow: visible;
     padding:30px;
   }
@@ -45,7 +55,6 @@ function PreviewFrame({ children, preview, stylesheet }) {
     transition:none !important;
   }
   `;
-
   return (
     <Frame
       style={{ width: widths[preview] }}

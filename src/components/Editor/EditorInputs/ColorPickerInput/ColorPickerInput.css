@@ -14,6 +14,9 @@
   width: 2.5rem;
   background: none;
 }
+.colorInput__input:hover {
+  cursor: pointer;
+}
 .colorInput__input::-webkit-color-swatch {
   position: absolute;
   top: -1px;
@@ -21,6 +24,6 @@
   right: -1px;
   bottom: -1px;
   box-sizing: border-box;
-  border: 1px solid transparent;
+  border: 1px solid var(--secondary-color);
   border-radius: 50%;
 }

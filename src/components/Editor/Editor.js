@@ -1,13 +1,17 @@
 import "./Editor.css";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, createContext } from "react";
 import EditorPreview from "./Middle/EditorPreview";
-import EditorStyes from "./LeftPanel/EditorStyling";
+import EditorStyles from "./LeftPanel/EditorStyling";
 import EditorValues from "./RightPanel/EditorValues";
 
-export default function Editor(props) {
+export default function Editor() {
   const [Preview, setPreview] = useState("desktop");
-  const [El, setEl] = useState();
+  const [DesignTheme, setDesignTheme] = useState(null);
+  const [El, setEl] = useState({});
+  const DesignWrapper = useRef();
+  const setStylesRef = useRef();
+  const setElementValueRef = useRef({});
   // const location = useLocation();
   // const { response: formData } = location.state;
   const formData = {
@@ -23,11 +27,32 @@ export default function Editor(props) {
     productReviews: "141",
     productRating: "4.5",
   };
+  const [DesignData, setDesignData] = useState({ ...formData });
   return (
     <div className="editor">
-      <EditorStyes El={El} preview={Preview} setPreview={setPreview} />
-      <EditorPreview formData={formData} setEl={setEl} preview={Preview} />
-      <EditorValues />
+      <Context.Provider
+        value={{
+          DesignTheme,
+          setDesignTheme,
+          setEl,
+          setStylesRef,
+          setElementValueRef,
+          DesignData,
+          Preview,
+          DesignWrapper,
+          setPreview,
+          El: El.selectedElement,
+        }}
+      >
+        <EditorStyles />
+        <EditorPreview />
+        <EditorValues
+          setDesignData={setDesignData}
+          DesignData={DesignData}
+          formData={formData}
+          DesignWrapper={DesignWrapper}
+        />{" "}
+      </Context.Provider>
     </div>
   );
 }
@@ -51,3 +76,5 @@ export function ClosePanel({ setShowPanel }) {
     </button>
   );
 }
+
+export const Context = createContext();

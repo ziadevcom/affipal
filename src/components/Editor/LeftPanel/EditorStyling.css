@@ -22,3 +22,6 @@
     width: 100% !important;
   }
 }
+.editor__styles .overflow-wrap .panel-content-wrapper.respect-overflow > div {
+  margin: 15px 0 !important;
+}

@@ -8,7 +8,9 @@ function ScopeStyles({ setPreview, preview }) {
   }
   return (
     <div className="scopeStyles">
-      <div className="scopeStyles__title">Change Preview</div>
+      <div className="scopeStyles__title">
+        <b>Change Preview</b>
+      </div>
       <div className="scopeStyles__body">
         <IconCheckbox
           icon="/mobile.svg"

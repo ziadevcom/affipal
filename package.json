@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
@@ -28,13 +28,15 @@
   },
   "dependencies": {
     "html-react-parser": "^1.2.6",
+    "minify-css-string": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-frame-component": "^4.1.3",
     "react-highlight": "^0.14.0",
     "react-quill": "^1.3.5",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "src": "^1.1.2"
   },
   "browserslist": [
     "last 2 Chrome versions"

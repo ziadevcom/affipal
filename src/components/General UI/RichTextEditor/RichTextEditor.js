@@ -3,13 +3,14 @@ import "react-quill/dist/quill.snow.css";
 import "./RichTextEditor.css";
 import React from "react";
 
-function RichTextEditor({ label, text, onChange }) {
+function RichTextEditor({ label, text, onChange, reference }) {
   return (
     <div className="richTextEditor">
-      <p className="richTextEditor__label">{label}</p>
+      {label && <p className="richTextEditor__label">{label}</p>}
       <ReactQuill
         value={text}
         onChange={onChange}
+        ref={reference}
         modules={{
           toolbar: [
             ["bold", "italic", "underline", "strike"],

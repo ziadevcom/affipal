@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import MultiStepForm, {
   FormStep,
 } from "../../../General UI/MultiStepForm/MultiStepForm";
-import FormInput from "../../../General UI/FormInput/FormInput";
+import TextInput from "../../../General UI/TextInput/TextInput";
 import RichTextEditor from "../../../General UI/RichTextEditor/RichTextEditor";
 import ImageSelectInput, {
   ImageSelectInputWrapper,
@@ -55,7 +55,7 @@ function Form({ formData, updateformData }) {
     <MultiStepForm formData={formData} onSubmit={onSubmit}>
       <FormStep verify={verifyStep1} title="Enter required details.">
         <div className="input-wrapper">
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="Product Title"
             type="text"
@@ -64,7 +64,7 @@ function Form({ formData, updateformData }) {
             value={formData["productTitle"]}
             required="true"
           />
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="Product Price ($)"
             type="number"
@@ -73,7 +73,7 @@ function Form({ formData, updateformData }) {
             value={formData["productPrice"]}
             required="true"
           />
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="Product Rating"
             type="number"
@@ -90,7 +90,7 @@ function Form({ formData, updateformData }) {
           className="input-wrapper"
           style={{ "--perRow": "1", "--gap": "0" }}
         >
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="Product Image URL"
             type="text"
@@ -101,7 +101,7 @@ function Form({ formData, updateformData }) {
           />
         </div>
         <div className="input-wrapper">
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="No. of Reviews"
             type="number"
@@ -111,7 +111,7 @@ function Form({ formData, updateformData }) {
             id="productReviews"
             value={formData["productReviews"]}
           />
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="Tax Statement"
             type="text"
@@ -120,7 +120,7 @@ function Form({ formData, updateformData }) {
             value={formData["productTax"]}
             required="true"
           />
-          <FormInput
+          <TextInput
             onChange={onChange}
             label="Product URL"
             type="text"

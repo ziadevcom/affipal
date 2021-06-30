@@ -24,6 +24,13 @@
   flex-direction: column;
   background-color: var(--white-color);
 }
+.editor__styles .overflow-wrap,
+.editor__values .overflow-wrap {
+  display: grid;
+  grid-template-rows:
+    clamp(80px, 6rem, 120px)
+    1fr;
+}
 .panel-content-wrapper {
   padding: 1rem;
 }
@@ -32,7 +39,7 @@
   text-align: center;
   font-size: clamp(1rem, 1.5vw, 2rem);
   font-weight: 600;
-  height: 6rem;
+  /* height: 6rem; */
   font-family: var(--main-font);
   display: flex;
   justify-content: center;

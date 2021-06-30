@@ -1,7 +1,5 @@
 .inputCard {
-  margin-bottom: 2rem;
   border: 1px solid var(--secondary-color);
-  /* border-bottom: 1px solid var(--secondary-color); */
   border-radius: 5px;
   transform: all 0.3s ease;
   width: 100%;
@@ -30,8 +28,8 @@
   align-items: center;
   min-height: 75px;
 }
-.inputCard__header h3 {
-  font-size: 0.9rem;
+.inputCard__header > div {
+  font-size: 0.85rem;
 }
 .inputCard__header button {
   padding: 10px;
