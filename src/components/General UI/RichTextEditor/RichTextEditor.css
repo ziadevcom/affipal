@@ -5,6 +5,7 @@
   min-height: 150px;
   background-color: #f6f7f9;
   font-family: 0.9rem;
+  line-break: anywhere;
 }
 
 .ql-toolbar.ql-snow {

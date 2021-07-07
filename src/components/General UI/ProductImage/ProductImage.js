@@ -1,22 +1,32 @@
-import "./ProductDescription.css";
+import React from "react";
 import { useState, useContext, useRef } from "react";
 import { Context } from "../../Editor/Editor";
-import parse from "html-react-parser";
 import useDidMountEffect from "../../CustomHooks/useDidMountEffect";
-function ProductDescription({ className, children }) {
+import "./ProductImage.css";
+function ProductImage({
+  src = "https://via.placeholder.com/180x220",
+  className,
+  alt = "product image",
+  size = "150px",
+}) {
   const { setEl, setStylesRef, DesignTheme, setElementValueRef } = useContext(
     Context
   );
-  const [Styles, setStyles] = useState(null);
-  const [ElementValue, setElementValue] = useState();
+  const [ElementValue, setElementValue] = useState(src);
+  const [Styles, setStyles] = useState({
+    maxWidth: size,
+  });
   const [render, forceRender] = useState();
   const thisElement = useRef();
+
+  // useDidMountEffect(() => {
+  //   setStyles({ width: ElementValue });
+  // }, [ElementValue]);
 
   useDidMountEffect(() => {
     setElementValueRef.current = {
       setElementValue,
       ElementValue,
-      type: "quill",
     };
     setEl({ selectedElement: thisElement.current });
   }, [render]);
@@ -32,21 +42,25 @@ function ProductDescription({ className, children }) {
 
   function setElement(e) {
     e.preventDefault();
-    setElementValue(thisElement.current.innerHTML);
+    setElementValue(ElementValue);
     setStylesRef.current = setStyles;
     forceRender(Math.random());
   }
+
   return (
     <div
-      ref={thisElement}
-      className={`product-description ${className ? className : ""}`}
-      onClick={setElement}
       editable="true"
-      style={{ ...Styles }}
+      className={`product-image-wrapper ${className ? className : ""}`}
     >
-      {ElementValue ? parse(ElementValue) : children}
+      <img
+        onClick={setElement}
+        ref={thisElement}
+        src={ElementValue}
+        alt={alt}
+        style={Styles}
+      />
     </div>
   );
 }
 
-export default ProductDescription;
+export default ProductImage;

@@ -1,0 +1,27 @@
+.product-rating-bg {
+  position: relative;
+  display: inline-block;
+  background-image: url("../../../../static/star.svg");
+  background-repeat: repeat-x;
+  background-position: left center;
+  vertical-align: middle;
+  height: 16px;
+  width: 80px;
+  background-size: 16px 16px;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+.product-rating div div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background-image: url("../../../../static/star-yellow.svg");
+  background-repeat: repeat-x;
+  background-position: left center;
+  height: 16px;
+  width: 80px;
+  background-size: 16px 16px;
+}

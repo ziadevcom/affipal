@@ -1,7 +1,11 @@
 import "./SelectedElement.css";
 import parser from "html-react-parser";
+import { Context } from "../../Editor";
 import { useContext } from "react";
+
 function SelectedElement({ element }) {
+  const { setElementValueRef } = useContext(Context);
+  const { ElementValue } = setElementValueRef.current;
   return (
     <div className="selectedElement">
       <div className="selectedElement__row">
@@ -11,7 +15,7 @@ function SelectedElement({ element }) {
       <div className="selectedElement__row">
         <div>Element Value:</div>
         <div className="selectedElement__value">
-          {element.innerText || parser(element.outerHTML)}
+          {element.innerText || ElementValue || parser(element.outerHTML)}
         </div>
       </div>
     </div>

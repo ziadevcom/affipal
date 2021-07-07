@@ -4,6 +4,7 @@ import "./RichTextEditor.css";
 import React from "react";
 
 function RichTextEditor({ label, text, onChange, reference }) {
+  // console.log(onChange, text,  reference)
   return (
     <div className="richTextEditor">
       {label && <p className="richTextEditor__label">{label}</p>}

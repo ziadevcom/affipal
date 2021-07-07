@@ -12,7 +12,7 @@ function TextEditor() {
   } = setElementValueRef.current;
   const [textareaValue, setTextareaValue] = useState();
   const TextEditorRef = useRef();
-  console.log(ElementValue);
+  let conditionalJSX;
   useEffect(() => {
     setElementValue(textareaValue);
   }, [textareaValue]);
@@ -20,31 +20,50 @@ function TextEditor() {
   useEffect(() => {
     TextEditorRef.current.focus();
     setTextareaValue(ElementValue);
-  }, [ElementValue, setElementValue]);
-  console.log(ElementValue);
+  }, [setElementValue]);
+
   function onChangeHandler(e) {
     setTextareaValue(e.target.value);
   }
 
+  if (type == "quill") {
+    conditionalJSX = (
+      <RichTextEditor
+        reference={TextEditorRef}
+        text={textareaValue}
+        onChange={(value) => {
+          setElementValue(value);
+        }}
+      />
+    );
+  } else if (type == "number") {
+    conditionalJSX = (
+      <input
+        type="number"
+        ref={TextEditorRef}
+        value={textareaValue}
+        onChange={onChangeHandler}
+        style={{ width: "100%" }}
+        max="5"
+        min="0.1"
+        step="0.1"
+      />
+    );
+  } else {
+    conditionalJSX = (
+      <input
+        typee="text"
+        ref={TextEditorRef}
+        value={textareaValue}
+        onChange={onChangeHandler}
+        style={{ width: "100%" }}
+      />
+    );
+  }
+
   return (
     <div className="editor__values__textEditor">
-      <InputCard title="Edit Text">
-        {type !== "quill" ? (
-          <textarea
-            ref={TextEditorRef}
-            value={textareaValue}
-            onChange={onChangeHandler}
-          />
-        ) : (
-          <RichTextEditor
-            reference={TextEditorRef}
-            text={ElementValue}
-            onChange={(value) => {
-              setElementValue(value);
-            }}
-          />
-        )}
-      </InputCard>
+      <InputCard title="Edit Text">{conditionalJSX}</InputCard>
     </div>
   );
 }

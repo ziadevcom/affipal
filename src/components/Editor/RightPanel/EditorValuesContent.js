@@ -7,7 +7,6 @@ import { Context } from "../Editor";
 
 function EditorValuesContent({ setDesignData, DesignData }) {
   const { El } = useContext(Context);
-
   // const onChange = (e) => {
   //   let key = e.target.name;
   //   let value = e.target.value;

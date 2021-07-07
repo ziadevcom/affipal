@@ -9,7 +9,8 @@ const css = minifyCssString(
     "utf8"
   )
 );
-
+import ProductRating from "../../../../General UI/ProductRating/ProductRating";
+import ProductImage from "../../../../General UI/ProductImage/ProductImage";
 function Theme1({ DesignData, DesignWrapper, DesignTheme, setEl }) {
   const {
     productDescription,
@@ -53,11 +54,10 @@ function Theme1({ DesignData, DesignWrapper, DesignTheme, setEl }) {
         value="Top Selling"
       />
       <div className="product-card__image">
-        <EditableTag domProps={{ src: productImage, alt: "" }} type="img" />
+        {/* <EditableTag domProps={{ src: productImage, alt: "" }} type="img" /> */}
+        <ProductImage size="150px" src={productImage} />
         <div className="product-card__rating">
-          <span className="rating__star-bg">
-            <span style={{ width: `${productRating * 20}%` }}></span>
-          </span>
+          <ProductRating rating={productRating} />
           <EditableTag
             type="p"
             value={`${productReviews} Reviews`}
