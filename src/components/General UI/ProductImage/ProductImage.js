@@ -4,7 +4,7 @@ import { Context } from "../../Editor/Editor";
 import useDidMountEffect from "../../CustomHooks/useDidMountEffect";
 import "./ProductImage.css";
 function ProductImage({
-  src = "https://via.placeholder.com/180x220",
+  src = "/affipal-image-404.png",
   className,
   alt = "product image",
   size = "150px",
@@ -18,10 +18,6 @@ function ProductImage({
   });
   const [render, forceRender] = useState();
   const thisElement = useRef();
-
-  // useDidMountEffect(() => {
-  //   setStyles({ width: ElementValue });
-  // }, [ElementValue]);
 
   useDidMountEffect(() => {
     setElementValueRef.current = {
@@ -39,6 +35,21 @@ function ProductImage({
       return { ...newState };
     });
   }, [DesignTheme]);
+
+  useDidMountEffect(() => {
+    const URL =
+      ElementValue && ElementValue.startsWith("http")
+        ? ElementValue
+        : `//${ElementValue}`;
+    fetch(URL, { method: "HEAD" })
+      .then((res) => {
+        console.log(res);
+        if (res.ok) {
+          return;
+        }
+      })
+      .catch(() => setElementValue("/affipal-image-404.png"));
+  }, [ElementValue]);
 
   function setElement(e) {
     e.preventDefault();

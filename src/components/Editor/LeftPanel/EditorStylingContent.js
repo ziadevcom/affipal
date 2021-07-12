@@ -17,6 +17,7 @@ export default function EditorStylingContent() {
         <ThemeChangers />
       </InputCard>
       <FontCustomizer element={El} />
+      <PaddingCustomizer element={El} />
       <InputCard title="Width Styles">
         <EditorNumberInput name="width" label="Change Width:" />
       </InputCard>
@@ -64,6 +65,38 @@ const FontCustomizer = ({ element }) => {
         step="0.2"
         min="0.1"
         preview={Preview}
+      />
+    </InputCard>
+  ) : null;
+};
+
+const PaddingCustomizer = ({ element }) => {
+  const { setStylesRef, Preview } = useContext(Context);
+  const updateStyles = setStylesRef.current;
+
+  function changePadding(DesktopValue, MobileValue) {
+    if (Preview == "mobile") {
+      updateStyles((prevStyles) => {
+        return { ...prevStyles, "--mobilePadding": MobileValue };
+      });
+      return;
+    }
+    updateStyles((prevStyles) => {
+      return { ...prevStyles, "--desktopPadding": DesktopValue };
+    });
+  }
+
+  return element ? (
+    <InputCard title="Padding Styles">
+      <EditorNumberInput
+        id="padding"
+        element={element}
+        sideEffect={changePadding}
+        label="Change Padding:"
+        step="0.1"
+        min="0"
+        preview={Preview}
+        multiple={true}
       />
     </InputCard>
   ) : null;

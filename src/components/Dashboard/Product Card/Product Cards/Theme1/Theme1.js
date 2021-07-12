@@ -54,7 +54,6 @@ function Theme1({ DesignData, DesignWrapper, DesignTheme, setEl }) {
         value="Top Selling"
       />
       <div className="product-card__image">
-        {/* <EditableTag domProps={{ src: productImage, alt: "" }} type="img" /> */}
         <ProductImage size="150px" src={productImage} />
         <div className="product-card__rating">
           <ProductRating rating={productRating} />

@@ -6,7 +6,8 @@ import { useContext, useState } from "react";
 import { Context } from "../Editor";
 
 function EditorValuesContent({ setDesignData, DesignData }) {
-  const { El } = useContext(Context);
+  const { El, DesignWrapper } = useContext(Context);
+  console.log(DesignWrapper);
   // const onChange = (e) => {
   //   let key = e.target.name;
   //   let value = e.target.value;
@@ -17,8 +18,10 @@ function EditorValuesContent({ setDesignData, DesignData }) {
   //   });
   // };
   function getCode() {
+    console.log("wat the fuck");
     let input = document.createElement("textarea");
-    input.innerHTML = parentElement.current.outerHTML;
+    console.log(input);
+    input.innerHTML = DesignWrapper.current.outerHTML;
     document.body.appendChild(input);
     input.select();
     let result = document.execCommand("copy");
@@ -42,11 +45,11 @@ function EditorValuesContent({ setDesignData, DesignData }) {
           <InputCard title="Selected Element" isOpen={true}>
             <SelectedElement element={El} />
           </InputCard>
-          <button className="getCode" onClick={getCode}>
-            Get Code
-          </button>
         </>
       )}
+      <button className="getCode" onClick={getCode}>
+        Get Code
+      </button>
     </div>
   );
 }

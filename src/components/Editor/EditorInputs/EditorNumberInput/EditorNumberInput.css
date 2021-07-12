@@ -13,6 +13,9 @@
   display: flex;
   flex-direction: column;
 }
+.editorNumberInput--multiInput .editorNumberInput__input--wrapper {
+  position: relative;
+}
 .editorNumberInput__label {
   font-size: 0.85rem;
   padding: 0.5rem 0;
@@ -71,4 +74,42 @@
 .editorNumberInputButton:last-child {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
+}
+.editorNumberInput__input--multiple {
+  border-radius: 0;
+  padding: 8px 5px;
+  text-align: center;
+  position: relative;
+}
+.multiInputWrapper {
+  position: relative;
+}
+.multiInputWrapper p {
+  position: absolute;
+  margin-top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: rgb(125 125 125 / 82%);
+}
+.multiInputLinkButton {
+  position: absolute;
+  top: -30px;
+  right: 0px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  display: grid;
+  place-content: center;
+}
+.multiInputLinkButton img {
+  max-width: 15px;
+}
+#multiInputLinkButtonActive {
+  background-color: var(--main-color);
+  /* background-color: var(--silver); */
+}
+#multiInputLinkButtonActive img {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(252deg)
+    brightness(106%) contrast(100%);
 }
