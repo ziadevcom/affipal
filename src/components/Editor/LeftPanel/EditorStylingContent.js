@@ -18,9 +18,7 @@ export default function EditorStylingContent() {
       </InputCard>
       <FontCustomizer element={El} />
       <PaddingCustomizer element={El} />
-      <InputCard title="Width Styles">
-        <EditorNumberInput name="width" label="Change Width:" />
-      </InputCard>
+      <MarginCustomizer element={El} />
     </>
   );
 }
@@ -70,6 +68,37 @@ const FontCustomizer = ({ element }) => {
   ) : null;
 };
 
+const MarginCustomizer = ({ element }) => {
+  const { setStylesRef, Preview } = useContext(Context);
+  const updateStyles = setStylesRef.current;
+
+  function changeMargin(DesktopValue, MobileValue) {
+    if (Preview == "mobile") {
+      updateStyles((prevStyles) => {
+        return { ...prevStyles, "--m-margin": MobileValue };
+      });
+      return;
+    }
+    updateStyles((prevStyles) => {
+      return { ...prevStyles, "--d-margin": DesktopValue };
+    });
+  }
+
+  return element ? (
+    <InputCard title="Margin Styles">
+      <EditorNumberInput
+        id="margin"
+        element={element}
+        sideEffect={changeMargin}
+        label="Change Margin:"
+        step="0.1"
+        min="0"
+        preview={Preview}
+        multiple={true}
+      />
+    </InputCard>
+  ) : null;
+};
 const PaddingCustomizer = ({ element }) => {
   const { setStylesRef, Preview } = useContext(Context);
   const updateStyles = setStylesRef.current;
@@ -77,12 +106,12 @@ const PaddingCustomizer = ({ element }) => {
   function changePadding(DesktopValue, MobileValue) {
     if (Preview == "mobile") {
       updateStyles((prevStyles) => {
-        return { ...prevStyles, "--mobilePadding": MobileValue };
+        return { ...prevStyles, "--m-padding": MobileValue };
       });
       return;
     }
     updateStyles((prevStyles) => {
-      return { ...prevStyles, "--desktopPadding": DesktopValue };
+      return { ...prevStyles, "--d-padding": DesktopValue };
     });
   }
 

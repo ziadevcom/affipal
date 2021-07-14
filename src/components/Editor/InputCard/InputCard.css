@@ -21,7 +21,6 @@
   margin-right: 8px;
 }
 .inputCard__header {
-  border-bottom: 1px solid var(--secondary-color);
   padding: 0.8rem;
   display: flex;
   justify-content: space-between;
@@ -59,6 +58,7 @@
   transition-duration: 0.2s;
   flex-direction: column;
   padding: 0.8rem;
+  border-top: 1px solid var(--secondary-color);
 }
 .inputCard__body > div {
   margin: 0.8rem 0;

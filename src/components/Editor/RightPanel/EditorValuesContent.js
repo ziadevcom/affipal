@@ -7,18 +7,8 @@ import { Context } from "../Editor";
 
 function EditorValuesContent({ setDesignData, DesignData }) {
   const { El, DesignWrapper } = useContext(Context);
-  console.log(DesignWrapper);
-  // const onChange = (e) => {
-  //   let key = e.target.name;
-  //   let value = e.target.value;
-  //   setDesignData((prevState) => {
-  //     let previousFormData = prevState;
-  //     previousFormData[key] = value;
-  //     return { ...previousFormData };
-  //   });
-  // };
+
   function getCode() {
-    console.log("wat the fuck");
     let input = document.createElement("textarea");
     console.log(input);
     input.innerHTML = DesignWrapper.current.outerHTML;

@@ -36,21 +36,6 @@ function ProductImage({
     });
   }, [DesignTheme]);
 
-  useDidMountEffect(() => {
-    const URL =
-      ElementValue && ElementValue.startsWith("http")
-        ? ElementValue
-        : `//${ElementValue}`;
-    fetch(URL, { method: "HEAD" })
-      .then((res) => {
-        console.log(res);
-        if (res.ok) {
-          return;
-        }
-      })
-      .catch(() => setElementValue("/affipal-image-404.png"));
-  }, [ElementValue]);
-
   function setElement(e) {
     e.preventDefault();
     setElementValue(ElementValue);
@@ -69,6 +54,7 @@ function ProductImage({
         src={ElementValue}
         alt={alt}
         style={Styles}
+        onError={() => setElementValue("/affipal-image-404.png")}
       />
     </div>
   );
