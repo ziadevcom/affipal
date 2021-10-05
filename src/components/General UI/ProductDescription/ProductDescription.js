@@ -37,15 +37,18 @@ function ProductDescription({ className, children }) {
     forceRender(Math.random());
   }
   return (
-    <div
-      ref={thisElement}
-      className={`product-description ${className ? className : ""}`}
-      onClick={setElement}
-      editable="true"
-      style={{ ...Styles }}
-    >
-      {ElementValue ? parse(ElementValue) : children}
-    </div>
+    <>
+      <div
+        ref={thisElement}
+        id="product-description"
+        className={className}
+        onClick={setElement}
+        editable="true"
+        style={{ ...Styles }}
+      >
+        {ElementValue ? parse(ElementValue) : children}
+      </div>
+    </>
   );
 }
 

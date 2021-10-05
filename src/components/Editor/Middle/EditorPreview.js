@@ -1,4 +1,5 @@
-import Theme1 from "../../Dashboard/Product Card/Product Cards/Theme1/Theme1";
+// import Theme1 from "../../Dashboard/Product Card/Product Cards/Theme1/Theme1";
+import Theme2 from "../../Dashboard/Product Card/Product Cards/Theme2/Theme2";
 import "./EditorPreview.css";
 import Frame from "react-frame-component";
 import { Context } from "../Editor";
@@ -12,7 +13,7 @@ export default function EditorPreview({}) {
   return (
     <div className="editor__preview">
       <PreviewFrame preview={Preview}>
-        <Theme1
+        <Theme2
           DesignWrapper={DesignWrapper}
           DesignData={DesignData}
           DesignTheme={DesignTheme}
@@ -58,7 +59,10 @@ function PreviewFrame({ children, preview, stylesheet }) {
   return (
     <Frame
       style={{ width: widths[preview] }}
-      head={[<style key="css">{CSS}</style>, stylesheet]}
+      head={[
+        <style key="css">{CSS}</style>,
+        <link rel="stylesheet" href="/globalstyles.css" />,
+      ]}
     >
       {children}
     </Frame>

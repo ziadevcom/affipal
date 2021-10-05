@@ -7,21 +7,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
-      <Route exact path="/">
-        <Header />
-        <Dashboard />
-      </Route>
-      <Route exact path="/dashboard">
-        <Header />
-        <Dashboard />
-      </Route>
-      <Switch>
-        <Route path="/editor">
-          <Editor />
-        </Route>
-      </Switch>
-    </Router>
+    <Editor />
+    // <Router>
+    //   <Route exact path="/">
+    //   <Editor />
+    //   <Route/>
+    //     {/* <Header />
+    //     <Dashboard />
+    //   </Route>
+    //   <Route path="/editor">
+    //     <Editor />
+    //   </Route>
+    //   <Header />
+    //   <Dashboard />                                                                      */}
+    // </Router>
   );
 };
 

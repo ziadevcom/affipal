@@ -1,12 +1,10 @@
-/* #product-description {
+#product-description {
   padding: var(--d-padding);
   margin: var(--d-margin);
   font-family: var(--card-font-2);
 }
 #product-description > p {
   pointer-events: none;
-  font-size: var(--desktopFontSize);
-  font-family: var(--card-font-2);
 }
 
 #product-description p,
@@ -20,4 +18,17 @@
   line-height: inherit !important;
   font-size: var(--desktopFontSize);
   font-family: var(--card-font-2);
-} */
+}
+
+@media screen and (max-width: 768px) {
+  #product-description {
+    padding: var(--m-padding);
+    margin: var(--m-margin);
+  }
+  #product-description ul li,
+  #product-description ol li,
+  #product-description p {
+    /* --mobileFontSize: inherit; */
+    font-size: var(--mobileFontSize);
+  }
+}

@@ -1,7 +1,6 @@
 import { InputCard } from "../InputCard/InputCard";
 import EditorNumberInput from "../EditorInputs/EditorNumberInput/EditorNumberInput";
 import ScopeStyles from "../ScopeStyles/ScopeStyles";
-import SelectedElement from "../EditorInputs/SelectedElement/SelectedElement";
 import ColorPickerInput from "../EditorInputs/ColorPickerInput/ColorPickerInput";
 import ThemeChanger from "../EditorInputs/ThemeChanger/ThemeChanger";
 import { useContext } from "react";
@@ -17,6 +16,7 @@ export default function EditorStylingContent() {
         <ThemeChangers />
       </InputCard>
       <FontCustomizer element={El} />
+      <BackgroundCustomizer element={El} />
       <PaddingCustomizer element={El} />
       <MarginCustomizer element={El} />
     </>
@@ -28,23 +28,26 @@ const FontCustomizer = ({ element }) => {
   const updateStyles = setStylesRef.current;
 
   function changeFontSize(DesktopValue, MobileValue) {
-    console.log({ DesktopValue, MobileValue, Preview });
     if (Preview == "mobile") {
       updateStyles((prevStyles) => {
-        console.log("mobile func");
         return { ...prevStyles, "--mobileFontSize": MobileValue };
       });
       return;
     }
     updateStyles((prevStyles) => {
-      console.log("desktop func");
       return { ...prevStyles, "--desktopFontSize": DesktopValue };
     });
   }
 
   function changeColor(color) {
     updateStyles((prevStyles) => {
-      return { ...prevStyles, "--fontColor": color };
+      return { ...prevStyles, color: color };
+    });
+  }
+
+  function changeLineHeight(value) {
+    updateStyles((prevStyles) => {
+      return { ...prevStyles, lineHeight: value };
     });
   }
 
@@ -60,14 +63,22 @@ const FontCustomizer = ({ element }) => {
         element={element}
         sideEffect={changeFontSize}
         label="Change Font Size:"
-        step="0.2"
+        step="0.1"
+        min="0.1"
+        preview={Preview}
+      />
+      <EditorNumberInput
+        name="lineHeight"
+        element={element}
+        sideEffect={changeLineHeight}
+        label="Change Line Height:"
+        step="0.1"
         min="0.1"
         preview={Preview}
       />
     </InputCard>
   ) : null;
 };
-
 const MarginCustomizer = ({ element }) => {
   const { setStylesRef, Preview } = useContext(Context);
   const updateStyles = setStylesRef.current;
@@ -130,7 +141,25 @@ const PaddingCustomizer = ({ element }) => {
     </InputCard>
   ) : null;
 };
+const BackgroundCustomizer = ({ element }) => {
+  const { setStylesRef } = useContext(Context);
+  const updateStyles = setStylesRef.current;
 
+  function changeBackgroundColor(color) {
+    updateStyles((prevStyles) => {
+      return { ...prevStyles, background: color };
+    });
+  }
+  return element ? (
+    <InputCard title="Background Color">
+      <ColorPickerInput
+        title="Choose Background Color"
+        sideEffect={changeBackgroundColor}
+        element={element}
+      />
+    </InputCard>
+  ) : null;
+};
 const ThemeChangers = () => {
   const { setDesignTheme } = useContext(Context);
   function changeTheme(color) {

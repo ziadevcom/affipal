@@ -5,13 +5,13 @@ import EditableTag from "../../../../General UI/EditableTag/EditableTag";
 import ProductDescription from "../../../../General UI/ProductDescription/ProductDescription";
 const css = minifyCssString(
   fs.readFileSync(
-    "src/components/Dashboard/Product Card/Product Cards/Theme1/Theme1.css",
+    "src/components/Dashboard/Product Card/Product Cards/Theme2/Theme2.css",
     "utf8"
   )
 );
 import ProductRating from "../../../../General UI/ProductRating/ProductRating";
 import ProductImage from "../../../../General UI/ProductImage/ProductImage";
-function Theme1({ DesignData, DesignWrapper, DesignTheme, setEl }) {
+function Theme1({ DesignData, DesignWrapper, DesignTheme }) {
   const {
     productDescription,
     productTitle,
@@ -31,7 +31,6 @@ function Theme1({ DesignData, DesignWrapper, DesignTheme, setEl }) {
       className="product-card"
       ref={DesignWrapper}
       style={DesignTheme && { "--productCardColor1": DesignTheme.theme }}
-      // editable="true"
     >
       <style>{css}</style>
       <EditableTag
