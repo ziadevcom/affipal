@@ -2,12 +2,20 @@ import TextInput from "../../General UI/TextInput/TextInput";
 import { InputCard } from "../InputCard/InputCard";
 import SelectedElement from "../EditorInputs/SelectedElement/SelectedElement";
 import TextEditor from "./TextEditor/TextEditor";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../Editor";
 
 function EditorValuesContent({ setDesignData, DesignData }) {
   const { El, DesignWrapper } = useContext(Context);
-
+  const [url, seturl] = useState(DesignData.productURL);
+  useEffect(
+    function () {
+      setDesignData((prev) => {
+        return { ...prev, productURL: url };
+      });
+    },
+    [url]
+  );
   function getCode() {
     let input = document.createElement("textarea");
     console.log(input);
@@ -28,6 +36,18 @@ function EditorValuesContent({ setDesignData, DesignData }) {
           <p>Click on the element you want to customize to get started.</p>
         </div>
       )}
+      <div className="editor__values__textEditor">
+        <InputCard title="Product URL">
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => {
+              seturl(e.target.value);
+            }}
+            style={{ width: "100%" }}
+          />
+        </InputCard>
+      </div>
 
       {El && (
         <>

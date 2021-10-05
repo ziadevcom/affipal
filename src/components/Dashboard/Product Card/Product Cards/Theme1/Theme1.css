@@ -67,11 +67,8 @@
   margin: 5px 0;
 }
 .product-card__description {
-  font-family: var(--card-font-2);
   --d-padding: 0;
   --d-margin: 0;
-  padding: var(--d-padding);
-  margin: var(--d-margin);
   line-height: 1.7;
 }
 .product-card__description p {
@@ -82,12 +79,10 @@
 .product-card__description ul,
 .product-card__description ol {
   list-style-position: inside;
-  font-family: var(--card-font-2);
   margin: 0.6rem 0;
 }
 .product-card__description ul li,
 .product-card__description ol li {
-  font-size: var(--desktopFontSize);
   margin-bottom: 10px;
   line-height: 1.5;
   pointer-events: none;

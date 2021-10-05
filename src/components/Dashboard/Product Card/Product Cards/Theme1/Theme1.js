@@ -22,7 +22,16 @@ function Theme1({ DesignData, DesignWrapper, DesignTheme, setEl }) {
     productImage,
     productPrice,
   } = DesignData;
-
+  console.log({
+    productDescription,
+    productTitle,
+    productURL,
+    productReviews,
+    productRating,
+    productTax,
+    productImage,
+    productPrice,
+  });
   let description = parser(productDescription);
 
   return (

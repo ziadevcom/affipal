@@ -52,7 +52,7 @@ function TextEditor() {
   } else {
     conditionalJSX = (
       <input
-        typee="text"
+        type="text"
         ref={TextEditorRef}
         value={textareaValue}
         onChange={onChangeHandler}
