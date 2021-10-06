@@ -17,4 +17,12 @@
   .editor__preview iframe {
     height: 800px;
   }
-} ;
+}
+
+.feedback {
+  position: absolute;
+  display: block;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

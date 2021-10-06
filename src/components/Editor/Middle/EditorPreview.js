@@ -57,14 +57,23 @@ function PreviewFrame({ children, preview, stylesheet }) {
   }
   `;
   return (
-    <Frame
-      style={{ width: widths[preview] }}
-      head={[
-        <style key="css">{CSS}</style>,
-        <link rel="stylesheet" href="/globalstyles.css" />,
-      ]}
-    >
-      {children}
-    </Frame>
+    <>
+      <Frame
+        style={{ width: widths[preview] }}
+        head={[
+          <style key="css">{CSS}</style>,
+          <link rel="stylesheet" href="/globalstyles.css" />,
+        ]}
+      >
+        {children}
+      </Frame>
+      <a
+        target="_blank"
+        className="feedback"
+        href="https://forms.gle/N2v8qnC8woJBKzZp8"
+      >
+        Click on this link for Complaint or Feedback
+      </a>
+    </>
   );
 }
